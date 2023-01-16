@@ -1,5 +1,14 @@
 #!/usr/bin/python3
 import os
+import sys
+import argparse
+
+#args
+parser = argparse.ArgumentParser(description='Audit SSH configuration file')
+parser.add_argument('-p', '--path', help='Path to SSH configuration file', required=True)
+args = parser.parse_args()
+config_path = args.path
+
 
 # anssi ssh recommendation
 recommendations = {
@@ -25,7 +34,11 @@ recommendations = {
     "MaxSessions" : "10",
 }
 
-with open("/etc/ssh/sshd_config", "r") as f:
+if not os.path.isfile(config_path):
+    print(f"{config_path} does not exist.")
+    sys.exit(1)
+
+with open(config_path, "r") as f:
     ssh_config = f.readlines()
     ssh_config = [x.strip() for x in ssh_config]
 
@@ -64,3 +77,4 @@ if non_compliant_settings:
     print("\nNon-compliant settings:")
     for setting, (line_number, line, value) in non_compliant_settings.items():
         print(f"Line {line_number}: {line} (should be {setting} {recommendations[setting]})")
+
