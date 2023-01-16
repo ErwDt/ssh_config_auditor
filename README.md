@@ -4,7 +4,7 @@
 Checks and reports the compliance of your ssh config file with the recommended ANSSI security settings.
 
 [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
-
+![Python](https://img.shields.io/badge/python-v3-blue)
 
 ## Installation
 
