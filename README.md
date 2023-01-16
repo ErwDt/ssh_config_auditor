@@ -8,7 +8,7 @@ Checks and reports the compliance of your ssh config file with the recommended A
 
 ## Installation
 
-git clone https://github.com/ErwDt/SSH-config-auditor.git
+git clone https://github.com/ErwDt/ssh_config_auditor
 
 ## Usage/Examples
 
